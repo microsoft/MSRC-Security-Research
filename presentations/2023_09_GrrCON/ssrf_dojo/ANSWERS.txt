@@ -1,0 +1,11 @@
+CornerKick: Send a GET request to http://127.0.0.1:8000/cornerkick?url=http://127.0.0.1:8000/flag with a header "Metadata:true" added to the request. This should capture the flag.
+
+LeakyFaucet: Send a GET request to http://127.0.0.1:8000/leakyfaucet?url=http://[third-party domain]:8000/flag and look for a hint in the headers. After you add the parameter "&legacyauth=True" to the query string, you should see an authentication token called "BackendToken" in the header. Use this header to visit "http://127.0.0.1:8000/flag" to capture the flag.
+
+ShapeShifter: This challenge will behave differently if the CTF is running on Windows or Linux. On Windows, you will need to specify a DNS A record that points to 127.0.0.1 or use a third-party domain like spoofed.burpcollaborator.net like "http://127.0.0.1:8000/shapeshifter?url=http://spoofed.burpcollaborator.net:8000/flag". On Linux, you can manipulate the IP address to someting like "http://127.0.0.1:8000/shapeshifter?url=http://0177.0.0.01:8000/flag" to capture the flag.
+
+MisguidedParser: Send a POST request to "http://127.0.0.1:8000/misguidedparser" with a url parameter of "url=http://127.0.0.1:8000/flag#" which will terminate the URL and capture the flag. You can send the request to a third-party website to examine the request. Other characters might trick the URL parser too.
+
+Detour: You need to setup a redirection server on another port or domain. You can use the "redirector.py" included with this dojo. It will listen on localhost port 5000. Send a request to the redirector, which then responds with a 302 redirect to "http://127.0.0.1:8000/flag" and capture the flag to win. The request should look like "http://127.0.0.1:8000/detour?url=http://127.0.0.1:5000/"
+
+BaitAndSwitch: This challenge requires that you manipulate the response from a DNS record via DNS rebinding. To do this we recommend you build your own DNS server and configure a domain or use the rbndr tool. By sending the request "http://127.0.0.1:8000/baitandswitch?url=http://7f000001.01010101.rbndr.us:8000/flag" multiple times, you should capture the flag! To troubleshoot, make sure the command "nslookup 7f000001.01010101.rbndr.us" returns the IP address "1.1.1.1" and "127.0.0.1" randomly on your CTF host.
