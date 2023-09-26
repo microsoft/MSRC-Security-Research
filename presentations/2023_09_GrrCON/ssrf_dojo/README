@@ -1,0 +1,36 @@
+SSRF Dojo: Capture The Flag Challenges
+ 
+Welcome to our SSRF (Server-Side Request Forgery) Dojo! In this Capture The Flag (CTF), you will learn to understand and secure your code against various SSRF vulnerabilities. The entire challenge runs on your localhost/loopback IP of 127.0.0.1. The goal will be to use the SSRF in each challenge to hit the http://127.0.0.1:8000/flag endpoint. We have designed six exciting and challenging SSRF scenarios for you to tackle:
+
+CornerKick (http://127.0.0.1:8000/cornerkick): In this challenge, you will discover an SSRF vulnerability that is denied by a common protection used by sensitive endpoints. Modify your request to exploit the SSRF and capture the flag.
+
+LeakyFaucet (http://127.0.0.1:8000/leakyfaucet): In this challenge, you will encounter a scenario where a sensitive token is leaked due to an SSRF vulnerability. Your goal is to identify the vulnerability and discover the token to secure the application.
+
+ShapeShifter (http://127.0.0.1:8000/shapeshifter): This challenge focuses on bypassing a security measure (IP address whitelist) using IP address encoding or other methods. You will learn how attackers can often change the apperance of an IP address to bypass security controls and gain unauthorized access to sensitive information or internal systems.
+
+MisguidedParser (http://127.0.0.1:8000/misguidedparser): Often URL parsers behave unexpectedly. In this challenge, you will learn how to manipulate a URL parser to request the correct endpoint. Try injecting special characters to see how behavior changes. Also take a look at the code to understand where the URL parser went wrong.
+
+Detour (http://127.0.0.1:8000/detour): In this challenge, you will face an SSRF vulnerability that follows a redirect. You will need to find the vulnerability and use it to access the flag, while also learning how to prevent such attacks in your applications. This will require a third-party redirection server. You can develop your own or use redirctor.py included with this CTF.
+
+BaitAndSwitch (http://127.0.0.1:8000/baitandswitch): The final challenge demonstrates DNS Rebinding, a technique that attackers can use to exploit SSRF vulnerabilities. Your task is to understand the mechanism behind DNS Rebinding and prevent it from compromising your application's security. You can develop your own or use https://lock.cmpxchg8b.com/rebinder.html.
+
+Getting Started
+ 
+To begin, we recommend going through the challenges in the given order, as they gradually increase in difficulty. Each challenge comes with its own set of instructions and hints to guide you through the process. Remember, the goal is to learn and understand how SSRF vulnerabilities work and how to secure your code against them.
+
+Prerequisites
+ 
+Before starting the challenges, we recommend that you have a basic understanding of web application development and HTTP requests. Familiarity with security concepts and interception proxies will also be helpful. 
+
+Install:
+
+Python for your operating system
+pip install requests flask
+
+Run the CTF:
+
+python dojo.py
+
+Then begin by visiting http://127.0.0.1:8000/cornerkick
+
+Good luck, and happy hunting!
